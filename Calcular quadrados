@@ -1,0 +1,14 @@
+PythonProjects
+==============
+
+def calcular(par, soma):
+	if (par >= 1):
+		soma += par*par
+		return calcular(par-1, soma)
+	else:
+		return soma
+
+
+if __name__ == "__main__":
+	var = input("valor: ")
+	print "a soma e: ", calcular(var, 0), ""

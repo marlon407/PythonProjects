@@ -1,0 +1,75 @@
+
+def InsertIni(par, vetor,count):
+	for i in range(count,0,-1):
+		vetor[i] = vetor[i-1]
+	vetor[0] = par
+	return count+1
+	
+def InsertEnd(par, vetor, count):
+	for i in range(count+1):
+		if vetor[i] is None:
+			vetor[i] = par 
+			break
+	return count + 1
+	
+def InsertN(par, vetor, n, count):
+	for i in range(count,n,-1):
+		vetor[i] = vetor[i-1]
+	vetor[n] = par
+	return count + 1
+
+def RemoveIni(vetor, count):
+	for i in range(count):
+		vetor[i] = vetor[i +1]
+	return count - 1
+		
+def RemoveEnd(vetor, count):
+	vetor[count - 1] = None
+	return count - 1
+	
+def RemoveN(vetor, count, n):
+	for i in range(n,count,+1):
+		vetor[i] = vetor[i+1]
+	return count - 1
+
+if __name__ == "__main__":
+	vetor = [None,None,None,None,None,None,None,None,None,None,None,None,None,None]
+	#~ vetor[0] = 4
+	#~ vetor[1] = 8
+	#~ vetor[2] = 5
+	#~ vetor[3] = 2
+	count = 0	
+	while True:
+		print """ Digite a opcao desejada:
+ 1 - Inserir Inicio,
+ 2 - Inserir Final,
+ 3 - Inserir no meio,
+ 4 - Remover Inicio,
+ 5 - Remover Final,
+ 6 - Remover no meio,
+ 0 - Sair
+ """
+ 		op = raw_input("opcao: ")
+ 		if op == "0":
+			break		
+		elif op == "1":
+			value = int(input("Valor: "))
+			count = InsertIni(value, vetor, count)        
+		elif op == "2":
+			value = int(input("Valor: "))
+			count = InsertEnd(value, vetor, count)        
+		elif op == "3":
+			value = int(input("Valor: "))
+			pos = int(input("Posicao: "))
+			count =InsertN(value, vetor, pos,count)        
+		elif op == "4":
+			count =RemoveIni(vetor, count)        
+		elif op == "5":
+			count =RemoveEnd(vetor, count)        
+		elif op == "6":
+			pos = int(input("Posicao: "))
+			count =RemoveN(vetor,count, pos)		
+
+		print vetor
+
+		

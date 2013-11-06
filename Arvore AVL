@@ -236,27 +236,5 @@ if __name__=='__main__':
     print "\nPercorrendo pos ordem"
     minhaArvore.percorrerPosOrder(minhaArvore.pRaiz)
     
-    
-    minhaArvore.inserir(42,"Quarenta e dois")
-    minhaArvore.inserir(35,"Trinta e cinco")
-    minhaArvore.inserir(25,"Vinte e  cinco")
-    minhaArvore.inserir(50,"Cinquenta")
-    #minhaArvore.pRaiz =  minhaArvore.inserirRec(minhaArvore.pRaiz, 32,"Trinta e dois")
-    minhaArvore.inserir(38,"Trinta e oito")
-    print "Percorrendo em ordem"
-    minhaArvore.percorrerInOrder(minhaArvore.pRaiz)
-    print "\nPercorrendo pre ordem"
-    minhaArvore.percorrerPreOrder(minhaArvore.pRaiz)
-    print "\nPercorrendo pos ordem"
+    minhaArvore.inserir(25,"Vinte e cinco")
     minhaArvore.percorrerPosOrder(minhaArvore.pRaiz)
-    print "\nRemovendo 42"
-    minhaArvore.remover(None,minhaArvore.pRaiz, 42)
-    print "\nRemovendo 30"
-    minhaArvore.remover(None,minhaArvore.pRaiz, 30)
-    print "\nPercorrendo em ordem"
-    minhaArvore.percorrerInOrder(minhaArvore.pRaiz)
-    print "\nPercorrendo pre ordem"
-    minhaArvore.percorrerPreOrder(minhaArvore.pRaiz)
-    print "\nPercorrendo pos ordem"
-    minhaArvore.percorrerPosOrder(minhaArvore.pRaiz)
-    

@@ -69,11 +69,11 @@ class arvore():
         else:
             self.pRaiz = noAux
             noAux.pPai = None
-        if noAux.pFilhoMaior != None:
-            noAux.pFilhoMaior.pai = no
-        no.pFilhoMaior = noAux.pFilhoMaior
-        noAux.pFilhoMaior = no
-        no.pai = no
+        if noAux.pFilhoMenor != None:
+            noAux.pFilhoMenor.pai = no
+        no.pFilhoMaior = noAux.pFilhoMenor
+        no.pai = noAux
+        noAux.pFilhoMenor = no
 
         no.atualizaAltura()
         noAux.atualizaAltura()
@@ -139,6 +139,8 @@ class arvore():
                     pai.pFilhoMenor = None
                 else:
                     pai.pFilhoMaior = None
+                pai.atualizaAltura()
+                self.balancear(pai)
             
             # Caso dos nos com unico filho
             elif elemento.pFilhoMenor == None or elemento.pFilhoMaior == None:
@@ -229,6 +231,9 @@ if __name__=='__main__':
     minhaArvore.inserir(30,"Trinta")
     minhaArvore.inserir(20,"Vinte")
     minhaArvore.inserir(15,"Quinze")
+    minhaArvore.inserir(22,"Quinze")
+    minhaArvore.inserir(35,"Quinze")
+
     print "Percorrendo em ordem"
     minhaArvore.percorrerInOrder(minhaArvore.pRaiz)
     print "\nPercorrendo pre ordem"
@@ -236,5 +241,3 @@ if __name__=='__main__':
     print "\nPercorrendo pos ordem"
     minhaArvore.percorrerPosOrder(minhaArvore.pRaiz)
     
-    minhaArvore.inserir(25,"Vinte e cinco")
-    minhaArvore.percorrerPosOrder(minhaArvore.pRaiz)

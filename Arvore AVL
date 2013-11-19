@@ -141,6 +141,7 @@ class arvore():
                     pai.pFilhoMaior = None
                 pai.atualizaAltura()
                 self.balancear(pai)
+                print "1"
             
             # Caso dos nos com unico filho
             elif elemento.pFilhoMenor == None or elemento.pFilhoMaior == None:
@@ -150,10 +151,14 @@ class arvore():
                     pai.pFilhoMenor = elemento.pFilhoMaior if elemento.pFilhoMaior is not None else elemento.pFilhoMenor
                 else:
                     pai.pFilhoMaior = elemento.pFilhoMaior if elemento.pFilhoMaior is not None else elemento.pFilhoMenor
+                print "2"
+                pai.atualizaAltura()
+                self.balancear(pai)
             
             # Caso dos nos com dois filhos
             # Estrategia: substituir por menor dos maiores
             else:
+                print "3"
                 substituto = self.pegarMenorMaiores(elemento, elemento.pFilhoMaior)
                 substituto.pFilhoMenor = elemento.pFilhoMenor
                 substituto.pFilhoMaior = elemento.pFilhoMaior
@@ -163,6 +168,8 @@ class arvore():
                     pai.pFilhoMenor = substituto
                 else:
                     pai.pFilhoMaior = substituto
+                pai.atualizaAltura()
+                self.balancear(pai)
             
         elif elemento.codigo > cod:
             self.remover(elemento, elemento.pFilhoMenor, cod)
@@ -231,13 +238,16 @@ if __name__=='__main__':
     minhaArvore.inserir(30,"Trinta")
     minhaArvore.inserir(20,"Vinte")
     minhaArvore.inserir(15,"Quinze")
-    minhaArvore.inserir(22,"Quinze")
     minhaArvore.inserir(35,"Quinze")
+    minhaArvore.inserir(22,"Quinze")
+    minhaArvore.inserir(18,"Quinze")
+    minhaArvore.inserir(40,"Quinze")
 
-    print "Percorrendo em ordem"
-    minhaArvore.percorrerInOrder(minhaArvore.pRaiz)
-    print "\nPercorrendo pre ordem"
-    minhaArvore.percorrerPreOrder(minhaArvore.pRaiz)
-    print "\nPercorrendo pos ordem"
-    minhaArvore.percorrerPosOrder(minhaArvore.pRaiz)
+    minhaArvore.remover(None,minhaArvore.pRaiz, 15)
     
+    print '\nInordem'
+    minhaArvore.percorrerInOrder(minhaArvore.pRaiz)
+    print '\nposOrdem'
+    minhaArvore.percorrerPosOrder(minhaArvore.pRaiz)
+    print '\npreOrdem'
+    minhaArvore.percorrerPreOrder(minhaArvore.pRaiz)
